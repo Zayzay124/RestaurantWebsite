@@ -37,11 +37,11 @@ function App() {
     <div class="menu">
       <p>Menu</p>
     </div>
-    <div class="img">
-      <img src={leaves} alt="Fall Leaves" />
-    </div>
     <div class="summary">
       <p>Order Summary</p>
+    </div>
+    <div class="img">
+      <img src={leaves} alt="Fall Leaves" />
     </div>
   </div>
  )
