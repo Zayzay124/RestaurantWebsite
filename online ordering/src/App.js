@@ -1,6 +1,7 @@
 import './App.css';
 import React from 'react';
 import leaves from './leaves.png';
+import { Link } from "react-router-dom";
 
 console.log(leaves);
 document.body.style = 'background: #FBBA72;';
@@ -12,19 +13,19 @@ function App() {
     <nav class="navbar background">
       <ul class="nav-list">
         <li>
-          <a href="#home">Home</a>
+          <Link to="#home">Home</Link>
         </li>
         <li>
-          <a href="#menu">Menu</a>
+          <Link to="#menu">Menu</Link>
         </li>
         <li>
-          <a href="#carrer">Careers</a>
+          <Link to="#careers">Career</Link>
         </li>
         <li>
-          <a href="#directions">Directions</a>
+          <Link to="#directions">Directions</Link>
         </li>
         <li>
-          <a href="#contact">Contact</a>
+          <Link to="#contact">Contact</Link>
         </li>
       </ul>
       <div class="rightNav">
@@ -32,6 +33,7 @@ function App() {
         <button class="delivery">Delivery</button>
       </div>
     </nav>
+
     <div class="menu">
       <p>Menu</p>
     </div>
