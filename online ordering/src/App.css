@@ -87,12 +87,6 @@ button:focus {
   margin-top: 15px;
 }
 
-.img {
-  max-width: 100%;
-  max-height: 100%;
-  display:inline-block;
-}
-
 .summary {
   width: 300px;
   border: 3px solid black;
@@ -101,6 +95,10 @@ button:focus {
   float: right;
   margin-right: 20px;
   margin-top: 15px;
+}
+
+.img {
+ rotate: 270deg;
 }
 
 p {
