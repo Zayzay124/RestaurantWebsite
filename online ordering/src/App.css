@@ -44,6 +44,7 @@ h1 {
   color: #CA5310;
   background-color: #FBBA72;
   padding: 5px 5px 5px 5px;
+  border-radius: 5px;
 }
 
 .rightnav {
@@ -70,19 +71,26 @@ button:focus {
   border: solid;
 }
 
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .menu {
   width: 300px;
   border: 3px solid black;
   border-radius: 5px;
   padding: 15px;
   float: left;
-  margin-left: auto;
+  margin-left: 20px;
+  margin-top: 15px;
 }
 
 .img {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
+  max-width: 100%;
+  max-height: 100%;
+  display:inline-block;
 }
 
 .summary {
@@ -91,7 +99,8 @@ button:focus {
   border-radius: 5px;
   padding: 15px;
   float: right;
-  margin-right: auto;
+  margin-right: 20px;
+  margin-top: 15px;
 }
 
 p {
