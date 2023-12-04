@@ -1,7 +1,10 @@
 import { useState } from "react";
+import { Link } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+
 export default function Page() {
   return(
-    <div>
+    <Router>
       <TopBox />
       <TextArea />
       <AllOfferBox />
@@ -9,7 +12,7 @@ export default function Page() {
       <Application />
       <Submit />
       <BottomText />
-    </div>
+    </Router>
   );
 }
 
@@ -73,12 +76,14 @@ function BottomText() {
           justifyContent: 'flex-start', 
           alignItems: 'flex-start', 
           display: 'flex'}}>
-          <div style = {{
-            color: '#BB4D00', 
-            fontSize: 25, 
-            fontWeight: '450', 
-            textDecoration: 'underline', 
-            wordWrap: 'break-word'}}>contact us!</div>
+          <Link to = 'https://www.google.com/'>
+            <div style = {{
+              color: '#BB4D00', 
+              fontSize: 25, 
+              fontWeight: '450', 
+              textDecoration: 'underline', 
+              wordWrap: 'break-word'}}>contact us!</div>
+          </Link>
         </div>
       </div>
     </div>
@@ -86,37 +91,39 @@ function BottomText() {
 }
 
 /* Dropdown menu item */
-function DDItem({label}) {
+function DDItem({label, to}) {
   return(
-    <div style = {{
-      width: 150, 
-      height: '90%', 
-      paddingLeft: 6, 
-      paddingRight: 6, 
-      borderRadius: 4, 
-      background: '#CA5310',
-      justifyContent: 'flex-start', 
-      alignItems: 'center', 
-      display: 'inline-flex'}}>
+    <Link to = {to}>
       <div style = {{
-        flex: '1 1 0', 
-        height: 32, 
-        padding: 6, 
-        borderRadius: 8, 
-        justifyContent: 'flex-start', 
-        alignItems: 'flex-start', 
-        gap: 4, 
+        width: 150, 
+        height: '90%', 
+        paddingLeft: 6, 
+        paddingRight: 6, 
+        borderRadius: 4, 
         background: '#CA5310',
-        display: 'flex'}}>
+        justifyContent: 'flex-start', 
+        alignItems: 'center', 
+        display: 'inline-flex'}}>
         <div style = {{
           flex: '1 1 0', 
+          height: 32, 
+          padding: 6, 
+          borderRadius: 8, 
+          justifyContent: 'flex-start', 
+          alignItems: 'flex-start', 
+          gap: 4, 
           background: '#CA5310',
-          color: 'white', 
-          fontSize: 20, 
-          fontWeight: '450',
-          wordWrap: 'break-word'}}>{label}</div>
+          display: 'flex'}}>
+          <div style = {{
+            flex: '1 1 0', 
+            background: '#CA5310',
+            color: 'white', 
+            fontSize: 20, 
+            fontWeight: '450',
+            wordWrap: 'break-word'}}>{label}</div>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 }
 
@@ -136,11 +143,11 @@ function DDOptions() {
       alignItems: 'flex-start', 
       gap: 4, 
       display: 'inline-flex'}}>
-        <DDItem label = {'Home'}/>
-        <DDItem label = {'Online Order'}/>
-        <DDItem label = {'Directions'}/>
-        <DDItem label = {'Careers'}/>
-        <DDItem label = {'Contact'}/>
+        <DDItem label = {'Home'} to = 'https://www.google.com/' />
+        <DDItem label = {'Online Order'} to = 'https://www.google.com/' />
+        <DDItem label = {'Directions'} to = 'https://www.google.com/' />
+        <DDItem label = {'Careers'} to = 'https://www.google.com/' />
+        <DDItem label = {'Contact'} to = 'https://www.google.com/' />
     </div>
   );
 }
@@ -213,7 +220,7 @@ function Application(){
         color: '#691E06',
         fontSize: 40
       }}>
-        Enter position(s) and attatch your resume and cover letter to apply.
+        Enter position(s) and attatch your resume to apply.
       </div>
       <div style = {{paddingLeft: 30}}>
         <div style = {{paddingBottom: 20}}>
@@ -269,6 +276,13 @@ function PosTextBox() {
 
 /* Dropbox for files */
 function DropBox(){
+  const [uploadedFile, setUploadedFile] = useState(null);
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    setUploadedFile(file);
+  }
+
   return(
     <div style = {{
       width: '90%', 
@@ -290,7 +304,7 @@ function DropBox(){
         justifyContent: 'center', 
         alignItems: 'center', 
         display: 'flex'}}>
-        <div style = {{
+        <label htmlFor = "fileInput" style = {{
           paddingLeft: 12, 
           paddingRight: 12, 
           paddingTop: 8, 
@@ -308,8 +322,23 @@ function DropBox(){
             fontWeight: '550',
             background: '#FFF',
             wordWrap: 'break-word'}}>Add files</div>
-        </div>
+          <input
+            id="fileInput"
+            type="file"
+            style={{ display: 'none' }}
+            onChange={handleFileChange}
+          />
+        </label>
       </div>
+      {uploadedFile && (
+        <div style = {{
+          background: '#BB4D00',
+          color: '#FFF', 
+          width: '90%',
+          borderRadius: 8}}>
+          Uploaded File: {uploadedFile.name}
+        </div>
+      )}
     </div>
   );
 }
@@ -593,11 +622,11 @@ function AllOfferBox() {
     <div style = {{
       paddingLeft: 60
     }}>
-      <OfferBox benName = {'Benefits'} benDesc = {'Something about benefits'}/>
+      <OfferBox benName = {'Benefits'} benDesc = {'Health, Dental, Vision, Life'}/>
       <WhiteLine />
-      <OfferBox benName = {'Pay'} benDesc = {'Something about pay'}/>
+      <OfferBox benName = {'Pay'} benDesc = {'Competitive wages'}/>
       <WhiteLine />
-      <OfferBox benName = {'Employee Discount'} benDesc = {'Something about employee discounts'}/>
+      <OfferBox benName = {'Employee Discount'} benDesc = {'10% off entire menu'}/>
       <WhiteLine />
     </div>
   );
@@ -662,7 +691,7 @@ function TextArea(){
         lineHeight: 1.25,
         paddingTop: 15
       }}>
-        (something about how great it is working here)
+        Working here feels like crafting moments of joy.
       </div>
       <div style = {{
         width: '100%',
