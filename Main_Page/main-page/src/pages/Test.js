@@ -1,7 +1,13 @@
-export default function Test() {
+import React from "react"
+
+const Test = () => {
     return (
-        <>
-            <h2>Test page</h2>
-        </>
+        <div>
+            <h1>
+                some test so that we know we are on a diffferent page
+            </h1>
+        </div>
     )
 }
+
+export default Test
