@@ -95,7 +95,6 @@ button:focus {
 }
 
 .img {
-  rotate: 270deg;
   display: flex;
   justify-content: center;
   align-items: center;
