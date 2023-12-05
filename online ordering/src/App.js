@@ -13,33 +13,35 @@ function App() {
     <nav class="navbar background">
       <ul class="nav-list">
         <li>
-          <Link to="#home">Home</Link>
+          <Link to="https://www.google.com">Home</Link>
         </li>
         <li>
-          <Link to="#menu">Menu</Link>
+          <Link to="https://www.google.com">Menu</Link>
         </li>
         <li>
-          <Link to="#careers">Career</Link>
+          <Link to="https://www.google.com">Career</Link>
         </li>
         <li>
-          <Link to="#directions">Directions</Link>
+          <Link to="https://www.google.com">Directions</Link>
         </li>
         <li>
-          <Link to="#contact">Contact</Link>
+          <Link to="https://www.google.com">Contact</Link>
         </li>
       </ul>
       <div class="rightNav">
-        <button class="pickup">Pickup</button>
-        <button class="delivery">Delivery</button>
+        <button>Pickup</button>
+        <button>Delivery</button>
       </div>
     </nav>
 
     <div class="menu">
       <p>Menu</p>
     </div>
+
     <div class="summary">
       <p>Order Summary</p>
     </div>
+    
     <div class="img">
       <img src={leaves} alt="Fall Leaves" />
     </div>
