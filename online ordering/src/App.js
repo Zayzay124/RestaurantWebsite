@@ -37,48 +37,19 @@ function App() {
         <button>Delivery</button>
       </div>
     </nav>
-    <Menu />
-    <br></br>
-    <div class="img">
-      <img src={leaves} alt="Fall Leaves" />
+    <div class="container">
+      <div class="img">
+        <img src={leaves} alt="Fall Leaves" />
+      </div>
+      <Menu />
+      <div class="img2">
+        <img src={leaves} alt="Fall Leaves" />
+      </div>
     </div>
+    <Popup />
   </div>
  )
 }
-
-/**
-function Menu() {
-  const Menu = () => {
-    const [buttonClicked, setButtonClicked] = useState(false)
-
-    const handleClick = () => {
-      setButtonClicked(true);
-    };
-
-    return (
-    <div class="menu">
-      <p class="title">Menu</p>
-      <br></br>
-      <p>Appetizer</p>
-      <button class="app" onClick={handleClick}>Salmon and Asparagus Reuben Canapes</button>
-      <br></br>
-      <p>First Course</p>
-      <button class="first" onClick={handleClick}>Mixed Greens Garden Salad</button>
-      <br></br>
-      <p>Main Course</p>
-      <button class="main" onclick={handleClick}>Baked Lemon Chicken</button>
-      <button class="main" onclick={handleClick}>Grilled Filet Mignon</button>
-      <button class="main" onClick={handleClick}>Edamame Pilaf</button>
-      <br></br>
-      <p>Desserts</p>
-      <button class="desserts" onClick={handleClick}>Chocolate Raspberry Wedding</button>
-      <button class="desserts" onClick={handleClick}>Cake French Vanilla Ice Cream</button>
-      <button class="desserts" onClick={handleClick}>Macaroons</button>
-    </div>
-    );
-  };
-}
-*/
 
 function Menu() {
   const [clickedButtons, setClickedButtons] = useState([]);
@@ -156,6 +127,26 @@ function Menu() {
       >
         Macaroons {clickedButtons.includes('Macaroons') && 'X'}
       </button>
+    </div>
+  );
+}
+
+function Popup(){
+  const [isPopupOpen, setPopupOpen] = useState(false);
+
+  const handlePopupToggle = () => {
+    setPopupOpen(!isPopupOpen);
+  };
+
+  return(
+    <div>
+      <button class="popup-button" onClick = {handlePopupToggle}>Place Order</button>
+      {isPopupOpen && (
+        <div class="popup-container">
+          <p>Order Placed</p>
+          <button class="close" onClick={handlePopupToggle}>Close</button>
+        </div>
+      )}
     </div>
   );
 }
